@@ -9,15 +9,20 @@
 
   <div class="app">
 
-  <h1>Welcome
+  <a href="home.php?logout=true">Logout</a>
+
   <?php
 
-  // $username = $_SESSION['username'];
   session_start();
-  echo $_SESSION['username'];
+  echo "<h1>Welcome " . $_SESSION['username'] . "</h1>";
+
+  if(isset($_GET['logout'])) {
+    session_destroy();
+    header('location:login.php');
+  }
 
   ?>
   </div>
-  </h1>
+
 </body>
 </html>
