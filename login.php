@@ -24,22 +24,22 @@
 
     if(!empty($_POST['username']) && !empty($_POST['password'])) {
 
+    $conn = mysqli_connect('localhost', 'root', '', 'kma-tech');
+
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $conn = mysqli_connect('localhost', 'root', '', 'kma-tech');
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username' AND password = '$password'");
-    $num = mysqli_num_rows($result);
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
 
-    if($num == 1) {
+    if(mysqli_num_rows($result) > 0){
+
+    while($row = mysqli_fetch_array($result)){
+
+    if(password_verify($password, $row['password'])) {
       $_SESSION['username'] = $username;
       header("location:home.php");
-    }
-    else {
-      echo "<p>Wrong username or password</p>";
-    }
-
-  }
+    } else echo "<p>Wrong username or password</p>";
+    }}}
 
     ?>
 

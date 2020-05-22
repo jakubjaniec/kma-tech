@@ -28,12 +28,14 @@
     $password = $_POST['password'];
     $submitPassword = $_POST['submit-password'];
 
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
     $conn = mysqli_connect('localhost', 'root', '', 'kma-tech');
     $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
     $num = mysqli_num_rows($result);
 
     if(($password == $submitPassword) && ($num == 0)) {
-        mysqli_query($conn, "INSERT INTO users VALUES(0, '$username', '$password')");
+        mysqli_query($conn, "INSERT INTO users VALUES(0, '$username', '$hashedPassword')");
     }
 
     if($password != $submitPassword){
