@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="login-register.css">
+  <title>REJESTRACJA | KMA-TECH</title>
+  <link rel="stylesheet" href="../styles/login-register.css">
 </head>
 <body>
 
   <div class="app">
-    <a href="login.php">Login</a>
-    <h1>Register page</h1>
+    <div class="form-wrapper">
+
+    <div class="heading">
+      <!-- <img src="" alt=""> -->
+      <h4>Witaj w naszym serwisie!</h4>
+    </div>
+
     <form method="POST">
       <input type="text" name="username" placeholder="username" autocomplete="off">
       <input type="password" name="password" placeholder="password">
@@ -30,19 +35,19 @@
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $conn = mysqli_connect('localhost', 'root', '', 'kma-tech');
+    $conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
     $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
-    $num = mysqli_num_rows($result);
 
-    if(($password == $submitPassword) && ($num == 0)) {
+    if(($password == $submitPassword) && (mysqli_num_rows($result) == 0)) {
         mysqli_query($conn, "INSERT INTO users VALUES(0, '$username', '$hashedPassword')");
+        header("location:login.php");
     }
 
     if($password != $submitPassword){
       echo "<p class='validation'>Passwords do not match.</p>";
     }
 
-    if($num != 0) {
+    if(mysqli_num_rows($result) != 0) {
       echo "<p class='validation'>Username already taken.</p>";
     }
 
@@ -50,6 +55,9 @@
 
   ?>
 
+    <span>Masz już konto?</span>
+    <a href="login.php">Zaloguj się!</a>
+  </div>
   </div>
 
   <script>

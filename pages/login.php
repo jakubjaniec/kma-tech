@@ -3,15 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="login-register.css">
+  <title>LOGOWANIE | KMA-TECH</title>
+  <link rel="stylesheet" href="../styles/login-register.css">
 </head>
 <body>
 
   <div class="app">
+    <div class="form-wrapper">
+    <div class="heading">
+      <!-- <img src="" alt=""> -->
+      <h4>Witaj ponownie!</h4>
+    </div>
 
-    <a href="register.php">Register</a>
-    <h1>Login page</h1>
     <form method="POST">
       <input type="text" name="username" placeholder="username" autocomplete="off">
       <input type="password" name="password" placeholder="password">
@@ -24,7 +27,7 @@
 
     if(!empty($_POST['username']) && !empty($_POST['password'])) {
 
-    $conn = mysqli_connect('localhost', 'root', '', 'kma-tech');
+    $conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
 
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -43,6 +46,9 @@
 
     ?>
 
+    <span>Nie masz jeszcze konta?</span>
+    <a href="register.php">Zarejestruj się!</a>
+    </div>
   </div>
 
   <script>
