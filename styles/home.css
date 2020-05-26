@@ -1,0 +1,133 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  width: 100%;
+  height: auto;
+}
+
+.header {
+  height: 90vh;
+  padding-top: 20px;
+}
+
+.menu {
+  width: 100%;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-right: 25px;
+}
+
+.user {
+  position: absolute;
+  left: 25px;
+}
+
+.user a {
+  margin-left: 20px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 150px;
+}
+
+.logo img {
+  width: 30%;
+}
+
+.logo a:first-of-type {
+  margin-right: 15px;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+}
+
+.products:nth-of-type(odd) {
+  align-items: flex-end;
+}
+
+.products p {
+  margin: 0 40px 10px
+}
+
+.products span {
+  height: 1px;
+  width: 50%;
+  background: black;
+  margin: 0 40px 20px;
+}
+
+.gallery {
+  display: flex;
+  width: auto;
+  margin: 0 40px;
+  text-align: center;
+  line-height: 250px;
+}
+
+
+.product {
+  width: 180px;
+  height: 250px;
+  background: #ccc;
+  margin: 0 10px;
+  border-radius: 10px;
+}
+
+.products:nth-of-type(odd) .product {
+  margin-right: 0;
+}
+
+.products:nth-of-type(even) .product {
+  margin-left: 0;
+}
+
+.contact {
+  height: 60vh;
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 50%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+textarea {
+  width: 300px;
+  margin: 5px 0;
+}
+
+button {
+  width: 100px;
+}

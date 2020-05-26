@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LOGOWANIE | KMA-TECH</title>
   <link rel="stylesheet" href="../styles/login-register.css">
 </head>
+
 <body>
 
   <div class="app">
+    <a href="home.php">Wróć</a>
     <div class="form-wrapper">
-    <div class="heading">
-      <!-- <img src="" alt=""> -->
-      <h4>Witaj ponownie!</h4>
-    </div>
+      <div class="heading">
+        <!-- <img src="" alt=""> -->
+        <h4>Witaj ponownie!</h4>
+      </div>
 
-    <form method="POST">
-      <input type="text" name="username" placeholder="username" autocomplete="off">
-      <input type="password" name="password" placeholder="password">
-      <input type="submit">
-    </form>
+      <form method="POST">
+        <input type="text" name="username" placeholder="username" autocomplete="off">
+        <input type="password" name="password" placeholder="password">
+        <input type="submit">
+      </form>
 
-    <?php
+      <?php
 
     session_start();
 
@@ -46,16 +49,16 @@
 
     ?>
 
-    <span>Nie masz jeszcze konta?</span>
-    <a href="register.php">Zarejestruj się!</a>
+      <span>Nie masz jeszcze konta?</span>
+      <a href="register.php">Zarejestruj się!</a>
     </div>
   </div>
 
   <script>
-
-   if(window.history.replaceState) {
-        window.history.replaceState(null, null, window.location.href);
-   }
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
   </script>
 </body>
+
 </html>

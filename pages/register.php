@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>REJESTRACJA | KMA-TECH</title>
   <link rel="stylesheet" href="../styles/login-register.css">
 </head>
+
 <body>
 
   <div class="app">
+    <a href="home.php">Wróć</a>
+
     <div class="form-wrapper">
+      <div class="heading">
+        <!-- <img src="" alt=""> -->
+        <h4>Witaj w naszym serwisie!</h4>
+      </div>
 
-    <div class="heading">
-      <!-- <img src="" alt=""> -->
-      <h4>Witaj w naszym serwisie!</h4>
-    </div>
+      <form method="POST">
+        <input type="text" name="username" placeholder="username" autocomplete="off">
+        <input type="password" name="password" placeholder="password">
+        <input type="password" name="submit-password" placeholder="submit password">
+        <input type="submit">
+      </form>
 
-    <form method="POST">
-      <input type="text" name="username" placeholder="username" autocomplete="off">
-      <input type="password" name="password" placeholder="password">
-      <input type="password" name="submit-password" placeholder="submit password">
-      <input type="submit">
-    </form>
+      <span>Masz już konto?</span>
+      <a href="login.php">Zaloguj się!</a>
 
-    <?php
+      <?php
 
   session_start();
 
@@ -44,27 +50,26 @@
     }
 
     if($password != $submitPassword){
-      echo "<p class='validation'>Passwords do not match.</p>";
+      echo "<p class='validation'>Hasła do siebie nie pasują.</p>";
     }
 
     if(mysqli_num_rows($result) != 0) {
-      echo "<p class='validation'>Username already taken.</p>";
+      echo "<p class='validation'>Nazwa użytkownika zajęta.</p>";
     }
 
   }
 
   ?>
 
-    <span>Masz już konto?</span>
-    <a href="login.php">Zaloguj się!</a>
-  </div>
+
+    </div>
   </div>
 
   <script>
-
-   if(window.history.replaceState) {
-        window.history.replaceState(null, null, window.location.href);
-   }
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
   </script>
 </body>
+
 </html>
