@@ -11,17 +11,16 @@
 <body>
 
   <div class="app">
-    <a href="home.php">Wróć</a>
     <div class="form-wrapper">
       <div class="heading">
-        <!-- <img src="" alt=""> -->
+        <img src="../imgs/kma-tech-icon.svg" alt="kma-tech logo-icon" class="logo-icon">
         <h4>Witaj ponownie!</h4>
       </div>
 
       <form method="POST">
-        <input type="text" name="username" placeholder="username" autocomplete="off">
-        <input type="password" name="password" placeholder="password">
-        <input type="submit">
+        <input type="text" name="username" id="login" placeholder="login" autocomplete="off">
+        <input type="password" name="password" id="password" placeholder="hasło">
+        <button>zaloguj</button>
       </form>
 
       <?php
@@ -49,8 +48,10 @@
 
     ?>
 
-      <span>Nie masz jeszcze konta?</span>
-      <a href="register.php">Zarejestruj się!</a>
+      <div class="go-to-register">
+        <a href="register.php">Nie masz jeszcze konta?</a> <br>
+        <a href="register.php">Zarejestruj się!</a>
+      </div>
     </div>
   </div>
 

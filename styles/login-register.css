@@ -1,11 +1,23 @@
-*, *::before, *::after {
+/* button gradient: background: linear-gradient(90deg, #6A82FB 5.42%, #FC5C7D 92.44%),
+#EEEEEE; */
+
+/* go to register: background: rgba(252, 92, 125, 0.2); */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+/* font-family: 'Montserrat', sans-serif; */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 .app {
@@ -16,13 +28,36 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  background: #354149;
+  color: white;
 }
 
 .form-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-icon {
+  width: 75px;
+  margin-top: 30px;
+}
+
+.heading h4 {
+  margin-top: 60px;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 form {
@@ -31,8 +66,80 @@ form {
   justify-content: center;
   align-items: center;
   margin: 10px;
+  width: 100%;
 }
 
 .validation {
   margin: 0;
+}
+
+input {
+  position: relative;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #eee;
+  width: 80%;
+  margin-bottom: 40px;
+  color: white;
+  padding: 10px;
+  outline: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+
+input::placeholder {
+  color: white;
+  opacity: 0.4
+}
+
+button {
+  position: relative;
+  width: 80%;
+  padding: 5px 0;
+  border: none;
+  background: linear-gradient(90deg, #6A82FB 5.42%, #FC5C7D 92.44%);
+  font-family: inherit;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 16px;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -5px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.go-to-register {
+  margin-top: 80px;
+  width: 80%;
+  font-size: 14px;
+  text-align: right;
+  font-weight: 300;
+}
+
+.go-to-register a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.go-to-register a:nth-of-type(2)::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  height: 70%;
+  width: 100%;
+  background: rgba(252, 92, 125, 0.2);
+  ;
 }
