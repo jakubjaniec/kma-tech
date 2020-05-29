@@ -11,6 +11,7 @@
 <body>
 
   <div class="app">
+    <img src="../imgs/login-bg.jpg" alt="" class="bg-rect">
     <div class="form-wrapper">
       <div class="heading">
         <img src="../imgs/kma-tech-icon.svg" alt="kma-tech logo-icon" class="logo-icon">
@@ -48,10 +49,10 @@
 
     ?>
 
-      <div class="go-to-register">
-        <a href="register.php">Nie masz jeszcze konta?</a> <br>
-        <a href="register.php">Zarejestruj się!</a>
-      </div>
+      <a href="register.php" class="redirect">
+        <span>Nie masz jeszcze konta?</span> <br>
+        <span>Zarejestruj się!</span>
+      </a>
     </div>
   </div>
 

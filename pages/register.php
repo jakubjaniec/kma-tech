@@ -11,23 +11,24 @@
 <body>
 
   <div class="app">
-    <a href="home.php">Wróć</a>
-
+    <img src="../imgs/login-bg.jpg" alt="" class="bg-rect">
     <div class="form-wrapper">
       <div class="heading">
-        <!-- <img src="" alt=""> -->
+        <img src="../imgs/kma-tech-icon.svg" alt="kma-tech logo-icon" class="logo-icon">
         <h4>Witaj w naszym serwisie!</h4>
       </div>
 
       <form method="POST">
-        <input type="text" name="username" placeholder="username" autocomplete="off">
-        <input type="password" name="password" placeholder="password">
-        <input type="password" name="submit-password" placeholder="submit password">
-        <input type="submit">
+        <input type="text" name="username" placeholder="login" autocomplete="off">
+        <input type="password" name="password" placeholder="hasło">
+        <input type="password" name="submit-password" placeholder="potwierdź hasło">
+        <button class="form-btn">dalej</button>
       </form>
 
-      <span>Masz już konto?</span>
-      <a href="login.php">Zaloguj się!</a>
+      <a href="login.php" class="redirect">
+        <span>Masz już konto?</span> <br>
+        <span>Zaloguj się!</span>
+      </a>
 
       <?php
 
