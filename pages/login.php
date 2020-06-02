@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LOGOWANIE | KMA-TECH</title>
   <link rel="stylesheet" href="../styles/login-register.css">
+  <link rel="shortcut icon" href="../imgs/kma-tech-icon.svg" type="image/x-icon">
 </head>
 
 <body>

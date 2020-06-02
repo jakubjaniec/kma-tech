@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KMA-TECH</title>
   <link rel="stylesheet" href="../styles/home.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="../imgs/kma-tech-icon.svg" type="image/x-icon">
 </head>
 
 <body>
@@ -13,6 +15,9 @@
   <div class="app">
 
     <header class="header">
+      <div class="header__bg">\
+        <img src="../imgs/home-bg.png" alt="">
+      </div>
       <?php
 
       session_start();
@@ -22,43 +27,49 @@
         header('location:home.php');
       }
       ?>
-      <nav class="menu">
-        <ul>
-          <div class="user">
+      <nav class="navigation">
+        <button class="navigation__burger burger">
+          <span class="burger__box">
+            <span class="burger__inner"></span>
+          </span>
+        </button>
+        <div class="navigation__menu">
+          <div class="navigation__user">
+
             <?php
-          if(!empty($_SESSION['username'])){
-          echo "Witaj " . $_SESSION['username'] . "!";
+            if(!empty($_SESSION['username'])){
+            echo "<span class='navigation__username'>" . $_SESSION['username'] . "</span><img src='../imgs/user-img.svg'>";
+            }
+            ?>
 
-
-          if($_SESSION['username'] == 'admin') {
-          echo "<a href='adminPanel.php' class='admin-panel'>Admin Panel</a>";
-          }
-          }
-          ?>
           </div>
-          <li>Strona główna</li>
-          <li>O nas</li>
-          <li>Usługi</li>
-          <li>Switche</li>
-          <li>Serwery</li>
-          <li>Podzespoły</li>
-          <li>Elementy pasywne</li>
-          <li>Narzędzia</li>
-          <li>Kontakt</li>
-          <li>
+          <ul>
+            <li>Strona główna</li>
+            <li>Usługi</li>
+            <li>Switche</li>
+            <li>Serwery</li>
+            <li>Podzespoły</li>
+            <li>Narzędzia</li>
+            <li>Kontakt</li>
             <?php
 
             if(!empty($_SESSION['username'])) {
-              echo "<a href='home.php?logout=true'>Wyloguj</a>";
+              echo "<li class='logout'><a href='home.php?logout=true'>Wyloguj</a></li>";
             }
-
             ?>
-          </li>
-        </ul>
+          </ul>
+        </div>
+        <div class="navigation__right-wrapper">
+          <div class="navigation__searchbox">
+            <input type="text" placeholder="szukaj" class="navigation__search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div>
+          <img src="../imgs/shopping-cart.svg" alt="">
+        </div>
       </nav>
-      <div class="logo">
-        <img src="../imgs/kma_logo.png" alt="kma-tech logo">
-        <p>najlepszy sklep komputerowy</p>
+      <div class="heading">
+        <img src="../imgs/kma-tech-logo.svg" alt="kma-tech logo" class="heading__logo">
+        <p class="heading__title">najlepszy sklep komputerowy</p>
         <div class="row">
           <?php
 
@@ -106,20 +117,28 @@
       </div>
     </section>
 
-    <footer class="contact">
-      <div class="column">
-        <h4>Strona zrobiona przez:</h4>
+    <footer class="footer">
+      <div class="footer__authors">
+        <h4>Twórcy</h4>
         <p>Janiec Jakub</p>
         <p>Krupa Milan</p>
         <p>Mysior Andrzej</p>
       </div>
-
-      <div class="column">
-        <h4>Kontakt:</h4>
+      <div class="footer__about">
+        <h4>O nas</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, voluptates, harum recusandae deleniti, nulla
+          vitae cupiditate repudiandae laboriosam quasi veniam exercitationem eos! Ea voluptas autem officia cumque
+          quasi!</p>
+      </div>
+      <div class="footer__contact">
+        <h4>Kontakt</h4>
         <form>
-          <input type="text">
-          <input type="text">
-          <textarea name="" id="" cols="30" rows="10"></textarea>
+          <label for="name">Imię</label>
+          <input type="text" id="name" require>
+          <label for="email">Adres e-mail</label>
+          <input type="email" id="email" require>
+          <label for="message">Wiadomość</label>
+          <textarea id="message" require></textarea>
           <button>Wyślij</button>
         </form>
       </div>
@@ -127,7 +146,7 @@
 
 
   </div>
-
+  <script src="../js/home.js"></script>
 </body>
 
 </html>

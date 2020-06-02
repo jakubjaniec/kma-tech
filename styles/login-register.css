@@ -1,11 +1,4 @@
-/* button gradient: background: linear-gradient(90deg, #6A82FB 5.42%, #FC5C7D 92.44%),
-#EEEEEE; */
-
-/* go to register: background: rgba(252, 92, 125, 0.2); */
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
-
-/* font-family: 'Montserrat', sans-serif; */
 
 *,
 *::before,
@@ -111,6 +104,7 @@ button {
   color: white;
   letter-spacing: 2px;
   font-size: 14px;
+  cursor: pointer;
 }
 
 button::before {
@@ -210,6 +204,7 @@ button::before {
 
   .form-wrapper {
     justify-content: center;
+    min-width: 350px;
     width: 30%;
     height: 90vh;
     background: #354149;
@@ -249,28 +244,28 @@ button::before {
 }
 
 @media (min-width: 1300px) {
-    .logo-icon {
-      width: 60px;
-    }
+  .logo-icon {
+    width: 60px;
+  }
 
-    .heading h4 {
-      font-size: 20px;
-      margin-top: 35px;
-    }
+  .heading h4 {
+    font-size: 20px;
+    margin-top: 35px;
+  }
 
-    input {
-      font-size: 13px;
-      margin-bottom: 40px;
-    }
+  input {
+    font-size: 13px;
+    margin-bottom: 40px;
+  }
 
-    button {
-      font-size: 13px;
-      padding: 7px 0;
-    }
+  button {
+    font-size: 13px;
+    padding: 7px 0;
+  }
 
-    .redirect {
-      font-size: 13px;
-    }
+  .redirect {
+    font-size: 13px;
+  }
 }
 
 @media (min-width: 1440px) {
