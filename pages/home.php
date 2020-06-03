@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../styles/home.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="shortcut icon" href="../imgs/kma-tech-icon.svg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.3/glider.min.css">
 </head>
 
 <body>
@@ -15,8 +16,9 @@
   <div class="app">
 
     <header class="header">
-      <div class="header__bg">\
-        <img src="../imgs/home-bg.png" alt="">
+      <div class="header__bg">
+        <img src="../imgs/home-mobile-bg.png" class="header__mobile-bg">
+        <img src="../imgs/home-desktop-bg.png" class="header__desktop-bg">
       </div>
       <?php
 
@@ -38,7 +40,8 @@
 
             <?php
             if(!empty($_SESSION['username'])){
-            echo "<span class='navigation__username'>" . $_SESSION['username'] . "</span><img src='../imgs/user-img.svg'>";
+            echo "<a href='userPage.php'><img src='../imgs/user-img.svg'><span class='navigation__username'>" . $_SESSION['username'] .
+              "</span></a>";
             }
             ?>
 
@@ -48,8 +51,7 @@
             <li>Usługi</li>
             <li>Switche</li>
             <li>Serwery</li>
-            <li>Podzespoły</li>
-            <li>Narzędzia</li>
+            <li>Pozostałe</li>
             <li>Kontakt</li>
             <?php
 
@@ -83,38 +85,89 @@
       </div>
     </header>
 
-    <section class="products">
+    <section class="products carousel1">
       <p>Switche</p>
       <span></span>
-      <div class="gallery">
+      <button class="carousel-btn-left">
+        <div></div>
+      </button>
+      <div class="mobile-gallery gallery">
         <div class="product">Switch 1</div>
         <div class="product">Switch 2</div>
         <div class="product">Switch 3</div>
         <div class="product">Switch 4</div>
         <div class="product">Switch 5</div>
+        <div class="product">Switch 6</div>
+        <div class="product">Switch 7</div>
       </div>
+      <div class="gallery glider1">
+        <div class="product">Switch 1</div>
+        <div class="product">Switch 2</div>
+        <div class="product">Switch 3</div>
+        <div class="product">Switch 4</div>
+        <div class="product">Switch 5</div>
+        <div class="product">Switch 6</div>
+        <div class="product">Switch 7</div>
+      </div>
+      <button class="carousel-btn-right">
+        <div></div>
+      </button>
     </section>
-    <section class="products">
+    <section class="products carousel2">
       <p>Serwery</p>
       <span></span>
-      <div class="gallery">
+      <button class="carousel-btn-left">
+        <div></div>
+      </button>
+      <div class="mobile-gallery gallery">
         <div class="product">Serwer 1</div>
         <div class="product">Serwer 2</div>
         <div class="product">Serwer 3</div>
         <div class="product">Serwer 4</div>
         <div class="product">Serwer 5</div>
+        <div class="product">Serwer 6</div>
+        <div class="product">Serwer 7</div>
       </div>
+      <div class="gallery glider2">
+        <div class="product">Serwer 1</div>
+        <div class="product">Serwer 2</div>
+        <div class="product">Serwer 3</div>
+        <div class="product">Serwer 4</div>
+        <div class="product">Serwer 5</div>
+        <div class="product">Serwer 6</div>
+        <div class="product">Serwer 7</div>
+      </div>
+      <button class="carousel-btn-right">
+        <div></div>
+      </button>
     </section>
-    <section class="products">
+    <section class="products carousel3">
       <p>Narzędzia</p>
       <span></span>
-      <div class="gallery">
+      <button class="carousel-btn-left">
+        <div></div>
+      </button>
+      <div class="mobile-gallery gallery">
         <div class="product">Narzędzie 1</div>
         <div class="product">Narzędzie 2</div>
         <div class="product">Narzędzie 3</div>
         <div class="product">Narzędzie 4</div>
         <div class="product">Narzędzie 5</div>
+        <div class="product">Narzędzie 6</div>
+        <div class="product">Narzędzie 7</div>
       </div>
+      <div class="gallery glider3">
+        <div class="product">Narzędzie 1</div>
+        <div class="product">Narzędzie 2</div>
+        <div class="product">Narzędzie 3</div>
+        <div class="product">Narzędzie 4</div>
+        <div class="product">Narzędzie 5</div>
+        <div class="product">Narzędzie 6</div>
+        <div class="product">Narzędzie 7</div>
+      </div>
+      <button class="carousel-btn-right">
+        <div></div>
+      </button>
     </section>
 
     <footer class="footer">
@@ -134,11 +187,11 @@
         <h4>Kontakt</h4>
         <form>
           <label for="name">Imię</label>
-          <input type="text" id="name" require>
+          <input type="text" id="name" require autocomplete="off">
           <label for="email">Adres e-mail</label>
-          <input type="email" id="email" require>
+          <input type="email" id="email" require autocomplete="off">
           <label for="message">Wiadomość</label>
-          <textarea id="message" require></textarea>
+          <textarea id="message" require autocomplete="off"></textarea>
           <button>Wyślij</button>
         </form>
       </div>
@@ -146,6 +199,8 @@
 
 
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.3/glider.min.js"></script>
   <script src="../js/home.js"></script>
 </body>
 
