@@ -1,9 +1,20 @@
 const hamburger = document.querySelector('.burger')
 const navigation = document.querySelector('.navigation')
-const productsSection = document.querySelector('.products')
-const header = document.querySelector('.header')
-const menu = document.querySelector('.navigation__menu')
-const carouselBtn = document.querySelector('.carousel-btn-left')
+
+// scroll to section
+
+document.querySelector('.home-li').addEventListener('click', () => window.scrollTo(0, document.querySelector('.header').offsetTop))
+
+document.querySelector('.section1-li').addEventListener('click', () => window.scrollTo(0, document.querySelector('.carousel1').offsetTop - navigation.clientHeight))
+
+document.querySelector('.section2-li').addEventListener('click', () => window.scrollTo(0, document.querySelector('.carousel2').offsetTop - navigation.clientHeight))
+
+document.querySelector('.section3-li').addEventListener('click', () => window.scrollTo(0, document.querySelector('.carousel3').offsetTop - navigation.clientHeight))
+
+document.querySelector('.contact-li').addEventListener('click', () => window.scrollTo(0, document.querySelector('.footer').offsetTop))
+
+
+// products' carousel
 
 new Glider(document.querySelector('.glider1'), {
   itemWidth: 250,
@@ -63,12 +74,12 @@ new Glider(document.querySelector('.glider3'), {
 })
 
 const changeNavColor = () => {
-  window.scrollY >= header.scrollHeight - 200 ? navigation.style.backgroundColor = '#3A4750' : navigation.style.backgroundColor = 'transparent'
+  window.scrollY >= document.querySelector('.header').scrollHeight - 200 ? navigation.style.backgroundColor = '#3A4750' : navigation.style.backgroundColor = 'transparent'
 }
 
 const toggleMobileMenu = () => {
   hamburger.classList.toggle('burger--active')
-  menu.classList.toggle('menu--active')
+  document.querySelector('.navigation__menu').classList.toggle('menu--active')
 }
 
 hamburger.addEventListener('click', toggleMobileMenu)

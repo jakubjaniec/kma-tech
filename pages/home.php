@@ -39,20 +39,23 @@
           <div class="navigation__user">
 
             <?php
-            if(!empty($_SESSION['username'])){
+            if(!empty($_SESSION['username']) && $_SESSION['username'] != 'admin'){
             echo "<a href='userPage.php'><img src='../imgs/user-img.svg'><span class='navigation__username'>" . $_SESSION['username'] .
               "</span></a>";
+            } else if(!empty($_SESSION['username']) &&$_SESSION['username'] == 'admin') {
+              echo "<a href='adminPanel.php'><img src='../imgs/user-img.svg'><span class='navigation__username'>" .
+                  $_SESSION['username'] .
+                  "</span></a>";
             }
             ?>
 
           </div>
           <ul>
-            <li>Strona główna</li>
-            <li>Usługi</li>
-            <li>Switche</li>
-            <li>Serwery</li>
-            <li>Pozostałe</li>
-            <li>Kontakt</li>
+            <li class="home-li">Strona główna</li>
+            <li class="section1-li">Switche</li>
+            <li class="section2-li">Serwery</li>
+            <li class="section3-li">Pozostałe</li>
+            <li class="contact-li">Kontakt</li>
             <?php
 
             if(!empty($_SESSION['username'])) {
@@ -66,7 +69,7 @@
             <input type="text" placeholder="szukaj" class="navigation__search">
             <i class="fa fa-search" aria-hidden="true"></i>
           </div>
-          <img src="../imgs/shopping-cart.svg" alt="">
+          <img src="../imgs/shopping-cart.svg" alt="" class="navigation__cart">
         </div>
       </nav>
       <div class="heading">
@@ -142,28 +145,28 @@
       </button>
     </section>
     <section class="products carousel3">
-      <p>Narzędzia</p>
+      <p>Pozostałe</p>
       <span></span>
       <button class="carousel-btn-left">
         <div></div>
       </button>
       <div class="mobile-gallery gallery">
-        <div class="product">Narzędzie 1</div>
-        <div class="product">Narzędzie 2</div>
-        <div class="product">Narzędzie 3</div>
-        <div class="product">Narzędzie 4</div>
-        <div class="product">Narzędzie 5</div>
-        <div class="product">Narzędzie 6</div>
-        <div class="product">Narzędzie 7</div>
+        <div class="product">Produkt 1</div>
+        <div class="product">Produkt 2</div>
+        <div class="product">Produkt 3</div>
+        <div class="product">Produkt 4</div>
+        <div class="product">Produkt 5</div>
+        <div class="product">Produkt 6</div>
+        <div class="product">Produkt 7</div>
       </div>
       <div class="gallery glider3">
-        <div class="product">Narzędzie 1</div>
-        <div class="product">Narzędzie 2</div>
-        <div class="product">Narzędzie 3</div>
-        <div class="product">Narzędzie 4</div>
-        <div class="product">Narzędzie 5</div>
-        <div class="product">Narzędzie 6</div>
-        <div class="product">Narzędzie 7</div>
+        <div class="product">Produkt 1</div>
+        <div class="product">Produkt 2</div>
+        <div class="product">Produkt 3</div>
+        <div class="product">Produkt 4</div>
+        <div class="product">Produkt 5</div>
+        <div class="product">Produkt 6</div>
+        <div class="product">Produkt 7</div>
       </div>
       <button class="carousel-btn-right">
         <div></div>

@@ -12,8 +12,12 @@
 <body>
 
   <div class="app">
+
     <img src="../imgs/login-bg.jpg" alt="" class="bg-rect">
     <div class="form-wrapper">
+      <a href="home.php" class="back-btn">
+        <div></div>
+      </a>
       <div class="heading">
         <img src="../imgs/kma-tech-icon.svg" alt="kma-tech logo-icon" class="logo-icon">
         <h4>Witaj w naszym serwisie!</h4>

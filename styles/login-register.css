@@ -15,6 +15,7 @@ body {
 
 .app {
   width: 100%;
+  max-width: 100%;
   min-height: 100vh;
 
   display: flex;
@@ -24,7 +25,37 @@ body {
 
   background: #354149;
   color: white;
+  overflow: hidden;
 }
+
+.back-btn {
+  position: absolute;
+  top: 5%;
+  right: 7%;
+  border: none;
+  background: transparent;
+  padding: 10px;
+}
+
+.back-btn div:before,
+.back-btn div:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background: white;
+}
+
+.back-btn div:before {
+  transform: rotate(45deg)
+}
+
+.back-btn div:after {
+  transform: rotate(-45deg)
+}
+
 
 .bg-rect {
   display: none;
@@ -93,7 +124,7 @@ input::placeholder {
   opacity: 0.4
 }
 
-button {
+form button {
   position: relative;
   width: 80%;
   padding: 5px 0;
@@ -107,7 +138,7 @@ button {
   cursor: pointer;
 }
 
-button::before {
+form button::before {
   content: "";
   position: absolute;
   top: 5px;
@@ -203,6 +234,7 @@ button::before {
   }
 
   .form-wrapper {
+    position: relative;
     justify-content: center;
     min-width: 350px;
     width: 30%;
