@@ -89,36 +89,48 @@
     </header>
 
     <section class="products carousel1">
-      <p>Switche</p>
-      <span></span>
+      <p class="section-title">Switche</p>
+      <span class="underline"></span>
       <button class="carousel-btn-left">
         <div></div>
       </button>
       <div class="mobile-gallery gallery">
-        <div class="product">Switch 1</div>
-        <div class="product">Switch 2</div>
-        <div class="product">Switch 3</div>
-        <div class="product">Switch 4</div>
-        <div class="product">Switch 5</div>
-        <div class="product">Switch 6</div>
-        <div class="product">Switch 7</div>
+      <?php 
+      
+      $conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
+
+      $result = mysqli_query($conn, "SELECT * FROM products WHERE category = 'switch'");
+
+      if(mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_array($result)) {
+          echo "<div class='product'><img src='". $row['image'] ."'/><div><p>" . $row['name'] . "</p><span class='underline'></span><span class='price'>Cena: " . $row['price'] . " PLN</span><button>dodaj do koszyka</button></div></div>";
+        }
+      }
+      
+      ?>
       </div>
       <div class="gallery glider1">
-        <div class="product">Switch 1</div>
-        <div class="product">Switch 2</div>
-        <div class="product">Switch 3</div>
-        <div class="product">Switch 4</div>
-        <div class="product">Switch 5</div>
-        <div class="product">Switch 6</div>
-        <div class="product">Switch 7</div>
+      <?php 
+      
+      $conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
+
+      $result = mysqli_query($conn, "SELECT * FROM products WHERE category = 'switch'");
+
+      if(mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_array($result)) {
+          echo "<div class='product'><img src='". $row['image'] ."'/><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " ZŁ</span><button>dodaj do koszyka</button></div>";
+        }
+      }
+      
+      ?>
       </div>
       <button class="carousel-btn-right">
         <div></div>
       </button>
     </section>
     <section class="products carousel2">
-      <p>Serwery</p>
-      <span></span>
+      <p class="section-title">Serwery</p>
+      <span class="underline"></span>
       <button class="carousel-btn-left">
         <div></div>
       </button>
@@ -145,8 +157,8 @@
       </button>
     </section>
     <section class="products carousel3">
-      <p>Pozostałe</p>
-      <span></span>
+      <p class="section-title">Pozostałe</p>
+      <span class="underline"></span>
       <button class="carousel-btn-left">
         <div></div>
       </button>

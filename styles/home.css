@@ -313,14 +313,14 @@ li.logout a {
   align-items: flex-end;
 }
 
-.products p {
+.products p.section-title {
   color: white;
   font-size: 18px;
   font-weight: 500;
   margin: 0 20px 5px
 }
 
-.products span {
+.products span.underline {
   height: 1px;
   width: 40%;
   background: linear-gradient(88.98deg, #FC5C7D 6.06%, #6A82FB 93.52%);
@@ -333,7 +333,6 @@ li.logout a {
   align-items: center;
   width: 100%;
   text-align: center;
-  line-height: 100px;
   margin-bottom: 40px;
 }
 
@@ -347,10 +346,56 @@ li.logout a {
 }
 
 .product {
+  position: relative;
   width: 90%;
   height: 100px;
-  background: #ccc;
+  background: #fff;
   margin: 7px 0;
+}
+
+.mobile-gallery .product {
+  display: flex;
+}
+
+.product div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-basis: 100%;
+}
+
+.product img {
+  margin-left: 10px;
+  width: 30%;
+  height: 40%;
+  align-self: center;
+}
+
+.product p {
+  text-align: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.product span.price {
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.product button {
+  cursor: pointer;
+  background: #333F47;
+  border: none;
+  color: white;
+  padding: 5px 20px;
+  font-family: inherit;
+  font-size: 13px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .products:nth-of-type(odd) .product {
@@ -526,7 +571,7 @@ li.logout a {
     align-items: center;
   }
 
-  .products p {
+  .products p.section-title {
     font-size: 20px;
   }
 
@@ -539,13 +584,56 @@ li.logout a {
   }
 
   .product {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 250px;
     width: 180px;
-    margin: 0;
     margin: 0 20px;
     border-radius: 10px;
-    line-height: 250px;
-    /* padding: 0 !important; */
+    overflow: hidden;
+  }
+
+  .product p {
+    color: black;
+    font-size: 14px;
+    margin: 0;
+    position: relative;
+    margin-bottom: 20px; 
+  }
+
+  .product img {
+    width: 80%;
+    margin-bottom: 30px;
+    height: 60px;
+    margin-top: 20px;
+  }
+
+  .product span.price {
+    font-weight: 300;
+    font-size: 14px;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .product span.underline {
+    background: #ccc;
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  .product button {
+    cursor: pointer;
+    background: #333F47;
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    font-family: inherit;
+    border-radius: 5px;
+    font-size: 13px;
+    margin: 0;
+    margin-bottom: 10px;
   }
 
   .products:nth-of-type(odd) .product {
@@ -553,7 +641,7 @@ li.logout a {
     margin-right: 20px;
   }
 
-  .products button {
+  .carousel-btn-left, .carousel-btn-right {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -658,7 +746,7 @@ li.logout a {
     width: auto;
   }
 
-  .products p {
+  .products p.section-title {
     margin: 0 40px 5px;
   }
 
@@ -703,6 +791,7 @@ li.logout a {
     padding: 7px 22px;
     font-size: 13px;
   }
+  
 }
 
 @media (min-width: 1600px) {
@@ -743,7 +832,7 @@ li.logout a {
     width: 170px;
   }
 
-  .products p {
+  .products p.section-title {
     font-size: 22px;
     margin-bottom: 8px;
   }
