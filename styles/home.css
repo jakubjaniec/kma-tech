@@ -74,7 +74,7 @@ ul {
 li {
   position: relative;
   margin: 35px 0 0 40px;
-  color: #ddd;
+  color: #fff;
   font-weight: 300;
   pointer-events: all;
   cursor: pointer;
@@ -348,7 +348,7 @@ li.logout a {
 .product {
   position: relative;
   width: 90%;
-  height: 100px;
+  min-height: 100px;
   background: #fff;
   margin: 7px 0;
 }
@@ -386,6 +386,7 @@ li.logout a {
   margin-right: 10px;
 }
 
+
 .product button {
   cursor: pointer;
   background: #333F47;
@@ -394,8 +395,7 @@ li.logout a {
   padding: 5px 20px;
   font-family: inherit;
   font-size: 13px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin: 10px 10px 10px 0;
 }
 
 .products:nth-of-type(odd) .product {
@@ -555,10 +555,13 @@ li.logout a {
     flex-direction: row;
     width: auto;
     max-width: 80%;
-    /* margin: 0 20px 40px; */
     margin: 0;
     overflow: hidden;
     align-self: flex-end
+  }
+
+  .glider2 .product img {
+    width: 60%;
   }
 
   .products {
@@ -601,6 +604,7 @@ li.logout a {
     margin: 0;
     position: relative;
     margin-bottom: 20px; 
+    text-align: center;
   }
 
   .product img {
@@ -791,6 +795,10 @@ li.logout a {
     padding: 7px 22px;
     font-size: 13px;
   }
+
+  .product {
+    /* min-height: 270px; */
+  }
   
 }
 
@@ -799,12 +807,41 @@ li.logout a {
      font-size: 15px;
    }
 
+   /* .heading__title{color:black} */
+
    .navigation__search {
      font-size: 14px;
    }
 
    .navigation__cart {
      width: 27px;
+   }
+
+   .products p.section-title {
+     font-size: 24px;
+   }
+
+   .product {
+     min-height: 270px;
+   }
+
+   .product p {
+     margin-top: 10px;
+     font-size: 17px;
+   }
+
+   .product span.price {
+     font-size: 15px;
+   }
+
+   .product img {
+     margin-top: 0;
+   }
+
+   .product button {
+     font-size: 15px;
+     margin-top: 15px;
+     margin-bottom: 0;
    }
 }
 
@@ -821,7 +858,7 @@ li.logout a {
   }
 
   .navigation li {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .navigation__right-wrapper {
@@ -833,7 +870,7 @@ li.logout a {
   }
 
   .products p.section-title {
-    font-size: 22px;
+    font-size: 24px;
     margin-bottom: 8px;
   }
 
@@ -843,8 +880,8 @@ li.logout a {
 }
 
 @media (min-width: 2000px) {
-   .heading__title{font-size: 34px}
-
+   .heading__title{font-size: 34px;}
+   
    .heading__logo {
      width: 23%;
    }
@@ -875,5 +912,13 @@ li.logout a {
 
   .navigation li:last-child {
     margin-right: 60px;
+  }
+
+  .product {
+    min-height: 270px;
+  }
+
+  .products p.section-title {
+    font-size: 32px;
   }
 }

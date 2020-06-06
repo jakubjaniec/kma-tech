@@ -103,7 +103,7 @@
 
       if(mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_array($result)) {
-          echo "<div class='product'><img src='". $row['image'] ."'/><div><p>" . $row['name'] . "</p><span class='underline'></span><span class='price'>Cena: " . $row['price'] . " PLN</span><button>dodaj do koszyka</button></div></div>";
+          echo "<div class='product'><img src='". $row['image'] ."'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><button>dodaj do koszyka</button></div></div>";
         }
       }
       
@@ -129,28 +129,40 @@
       </button>
     </section>
     <section class="products carousel2">
-      <p class="section-title">Serwery</p>
+      <p class="section-title">Routery</p>
       <span class="underline"></span>
       <button class="carousel-btn-left">
         <div></div>
       </button>
       <div class="mobile-gallery gallery">
-        <div class="product">Serwer 1</div>
-        <div class="product">Serwer 2</div>
-        <div class="product">Serwer 3</div>
-        <div class="product">Serwer 4</div>
-        <div class="product">Serwer 5</div>
-        <div class="product">Serwer 6</div>
-        <div class="product">Serwer 7</div>
+      <?php 
+      
+      $conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
+
+      $result = mysqli_query($conn, "SELECT * FROM products WHERE category = 'router'");
+
+      if(mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_array($result)) {
+          echo "<div class='product'><img src='". $row['image'] ."'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><button>dodaj do koszyka</button></div></div>";
+        }
+      }
+      
+      ?>
       </div>
       <div class="gallery glider2">
-        <div class="product">Serwer 1</div>
-        <div class="product">Serwer 2</div>
-        <div class="product">Serwer 3</div>
-        <div class="product">Serwer 4</div>
-        <div class="product">Serwer 5</div>
-        <div class="product">Serwer 6</div>
-        <div class="product">Serwer 7</div>
+      <?php 
+      
+      $conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
+
+      $result = mysqli_query($conn, "SELECT * FROM products WHERE category = 'router'");
+
+      if(mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_array($result)) {
+          echo "<div class='product'><img src='". $row['image'] ."'/><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " ZŁ</span><button>dodaj do koszyka</button></div>";
+        }
+      }
+      
+      ?>
       </div>
       <button class="carousel-btn-right">
         <div></div>
@@ -163,22 +175,34 @@
         <div></div>
       </button>
       <div class="mobile-gallery gallery">
-        <div class="product">Produkt 1</div>
-        <div class="product">Produkt 2</div>
-        <div class="product">Produkt 3</div>
-        <div class="product">Produkt 4</div>
-        <div class="product">Produkt 5</div>
-        <div class="product">Produkt 6</div>
-        <div class="product">Produkt 7</div>
+      <?php 
+      
+      $conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
+
+      $result = mysqli_query($conn, "SELECT * FROM products WHERE category = 'other'");
+
+      if(mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_array($result)) {
+          echo "<div class='product'><img src='". $row['image'] ."'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><button>dodaj do koszyka</button></div></div>";
+        }
+      }
+      
+      ?>
       </div>
       <div class="gallery glider3">
-        <div class="product">Produkt 1</div>
-        <div class="product">Produkt 2</div>
-        <div class="product">Produkt 3</div>
-        <div class="product">Produkt 4</div>
-        <div class="product">Produkt 5</div>
-        <div class="product">Produkt 6</div>
-        <div class="product">Produkt 7</div>
+      <?php 
+      
+      $conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
+
+      $result = mysqli_query($conn, "SELECT * FROM products WHERE category = 'other'");
+
+      if(mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_array($result)) {
+          echo "<div class='product'><img src='". $row['image'] ."'/><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " ZŁ</span><button>dodaj do koszyka</button></div>";
+        }
+      }
+      
+      ?>
       </div>
       <button class="carousel-btn-right">
         <div></div>
