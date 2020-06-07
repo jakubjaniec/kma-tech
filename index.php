@@ -1,3 +1,16 @@
+<?php 
+
+if ( !session_id() ) {
+session_start();
+}
+
+if(isset($_GET['logout'])) {
+  session_destroy();
+  header('location:index.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,30 +18,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KMA-TECH</title>
-  <link rel="stylesheet" href="../styles/home.css">
+  <link rel="stylesheet" href="./styles/index.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="shortcut icon" href="../imgs/kma-tech-icon.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="./imgs/kma-tech-icon.svg" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.3/glider.min.css">
 </head>
 
 <body>
-
   <div class="app">
 
     <header class="header">
       <div class="header__bg">
-        <img src="../imgs/home-mobile-bg.png" class="header__mobile-bg">
-        <img src="../imgs/home-desktop-bg.png" class="header__desktop-bg">
+        <img src="./imgs/home-mobile-bg.png" class="header__mobile-bg">
+        <img src="./imgs/home-desktop-bg.png" class="header__desktop-bg">
       </div>
-      <?php
-
-      session_start();
-
-      if(isset($_GET['logout'])) {
-        session_destroy();
-        header('location:home.php');
-      }
-      ?>
       <nav class="navigation">
         <button class="navigation__burger burger">
           <span class="burger__box">
@@ -40,10 +43,10 @@
 
             <?php
             if(!empty($_SESSION['username']) && $_SESSION['username'] != 'admin'){
-            echo "<a href='userPage.php'><img src='../imgs/user-img.svg'><span class='navigation__username'>" . $_SESSION['username'] .
+            echo "<a href='userPage.php'><img src='./imgs/user-img.svg'><span class='navigation__username'>" . $_SESSION['username'] .
               "</span></a>";
             } else if(!empty($_SESSION['username']) &&$_SESSION['username'] == 'admin') {
-              echo "<a href='adminPanel.php'><img src='../imgs/user-img.svg'><span class='navigation__username'>" .
+              echo "<a href='adminPanel.php'><img src='./imgs/user-img.svg'><span class='navigation__username'>" .
                   $_SESSION['username'] .
                   "</span></a>";
             }
@@ -59,7 +62,7 @@
             <?php
 
             if(!empty($_SESSION['username'])) {
-              echo "<li class='logout'><a href='home.php?logout=true'>Wyloguj</a></li>";
+              echo "<li class='logout'><a href='index.php?logout=true'>Wyloguj</a></li>";
             }
             ?>
           </ul>
@@ -69,11 +72,11 @@
             <input type="text" placeholder="szukaj" class="navigation__search">
             <i class="fa fa-search" aria-hidden="true"></i>
           </div>
-          <img src="../imgs/shopping-cart.svg" alt="" class="navigation__cart">
+          <img src="./imgs/shopping-cart.svg" alt="" class="navigation__cart">
         </div>
       </nav>
       <div class="heading">
-        <img src="../imgs/kma-tech-logo.svg" alt="kma-tech logo" class="heading__logo">
+        <img src="./imgs/kma-tech-logo.svg" alt="kma-tech logo" class="heading__logo">
         <p class="heading__title">najlepszy sklep komputerowy</p>
         <div class="row">
           <?php
@@ -240,7 +243,7 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.3/glider.min.js"></script>
-  <script src="../js/home.js"></script>
+  <script src="./js/index.js"></script>
 </body>
 
 </html>

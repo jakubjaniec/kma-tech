@@ -9,7 +9,7 @@
 
 <body>
 
-  <a href="home.php">Wróć</a>
+  <a href="index.php">Wróć</a>
   <h1>Profil użytkownika</h1>
 
 </body>

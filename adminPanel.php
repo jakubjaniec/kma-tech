@@ -7,7 +7,7 @@
 </head>
 <body>
 
-  <a href="home.php">Wróć</a>
+  <a href="index.php">Wróć</a>
   <h1>Panel administratora</h1>
 
 </body>
