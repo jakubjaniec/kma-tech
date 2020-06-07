@@ -473,8 +473,6 @@ li.logout a {
 
 
 
-
-
 @media (min-width: 1024px) {
   .burger {
     display: none;
@@ -795,11 +793,6 @@ li.logout a {
     padding: 7px 22px;
     font-size: 13px;
   }
-
-  .product {
-    /* min-height: 270px; */
-  }
-  
 }
 
 @media (min-width: 1600px) {
@@ -843,6 +836,10 @@ li.logout a {
      margin-top: 15px;
      margin-bottom: 0;
    }
+
+   .footer__contact textarea {
+     min-height: 140px;
+   }
 }
 
 @media (min-width: 1800px) {
@@ -852,13 +849,21 @@ li.logout a {
 
  /* .heading__title{color:black} */
 
+ .heading__title {
+   font-size: 36px;
+ }
+
   .heading a {
     padding: 8px 24px;
     font-size: 14px;
   }
 
   .navigation li {
-    font-size: 16px;
+    font-size: 17px;
+  }
+
+  .navigation__username {
+    font-size: 19px;
   }
 
   .navigation__right-wrapper {
@@ -866,7 +871,7 @@ li.logout a {
   }
 
   .navigation__search {
-    width: 170px;
+    width: 180px;
   }
 
   .products p.section-title {
@@ -877,31 +882,48 @@ li.logout a {
   .products span {
     margin-bottom: 50px;
   }
+
+  .footer__contact form {
+    margin-bottom: 30px;
+  }
 }
 
 @media (min-width: 2000px) {
-   .heading__title{font-size: 34px;}
+   .heading__title{
+     font-size: 42px;
+     /* color: black; */
+    }
    
    .heading__logo {
      width: 23%;
    }
 
    .navigation li {
-     font-size: 18px;
+     font-size: 20px;
    }
    .navigation {
      padding-left: 25px;
      padding-right: 25px;
    }
 
+   .navigation__user img {
+    width: 50px;
+  }
+
+  .navigation__username {
+    font-size: 21px;
+    margin-left: 15px;
+  }
+
    .navigation__cart {
-     width: 30px
+     width: 35px
    }
 
    .navigation__search {
-     font-size: 16px;
-     width: 180px;
+     font-size: 18px;
+     width: 210px;
    }
+
    .navigation__searchbox {
     margin-right: 40px;
   }
@@ -911,14 +933,56 @@ li.logout a {
   }
 
   .navigation li:last-child {
-    margin-right: 60px;
+    margin-right: 50px;
   }
 
   .product {
-    min-height: 270px;
+    min-height: 300px;
+  }
+
+  .product button {
+    font-size: 18px;
+    padding: 4px 35px;
+  }
+
+  .product p {
+    font-size: 20px;
+  }
+
+  .product span.price {
+    font-size: 18px;
+    margin: 15px 0 ;
   }
 
   .products p.section-title {
     font-size: 32px;
+  }
+
+  .products .gallery {
+    margin-top: 20px;
+  }
+
+  .footer h4 {
+    font-size: 32px;
+  }
+
+  .footer p, .footer label {
+    font-size: 20px;
+  }
+
+  .footer__about p {
+    line-height: 150%
+  }
+
+  .footer__contact input {
+    height: 40px;
+  }
+
+  .footer__contact textarea {
+    min-height: 180px;
+  }
+
+  .footer__contact button {
+    font-size: 20px;
   }
 }

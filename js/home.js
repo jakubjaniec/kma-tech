@@ -14,7 +14,7 @@ document.querySelector('.section3-li').addEventListener('click', () => window.sc
 document.querySelector('.contact-li').addEventListener('click', () => window.scrollTo(0, document.querySelector('.footer').offsetTop))
 
 
-// products' carousel
+// products carousel
 
 new Glider(document.querySelector('.glider1'), {
   itemWidth: 250,
