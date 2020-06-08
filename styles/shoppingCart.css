@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.back-btn {
+    position: absolute;
+    top: 5%;
+    right: 7%;
+    border: none;
+    background: transparent;
+    padding: 10px;
+}
+
+.back-btn div:before,
+.back-btn div:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: black;
+}
+
+.back-btn div:before {
+    transform: rotate(45deg)
+}
+
+.back-btn div:after {
+    transform: rotate(-45deg)
+}
