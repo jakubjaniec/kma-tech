@@ -8,7 +8,9 @@ if (isset($_GET['logout'])) {
     session_destroy();
     header('location:shoppingCart.php');
 }
-
+if (isset($_SESSION['id_u'])) {
+    $id_u = $_SESSION['id_u'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,29 +47,34 @@ if (!empty($_SESSION['username']) && $_SESSION['username'] != 'admin') {
         </nav>
         <p class="section-title">Razem:
             <?php
-$conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
-$query = mysqli_query($conn, "SELECT products.price, products.count, cart.amount FROM cart, products, users WHERE users.id_u LIKE cart.id_u AND products.id_p LIKE cart.id_p");
 $total = 0;
-if (mysqli_num_rows($query) > 0) {
-    while ($row = mysqli_fetch_array($query)) {
-        $total += $row['amount'] * $row['price'];
+if (isset($_SESSION['id_u'])) {
+    $conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
+    $query = mysqli_query($conn, "SELECT products.price, products.count, cart.amount FROM cart, products WHERE $id_u LIKE cart.id_u AND products.id_p LIKE cart.id_p");
+    if (mysqli_num_rows($query) > 0) {
+        while ($row = mysqli_fetch_array($query)) {
+            $total += $row['amount'] * $row['price'];
+        }
+
     }
-    echo "<span>$total</span> PLN";
 }
+echo "<span>$total</span> PLN";
 
 ?>
         </p>
         <span class="underline"></span>
         <div class="mobile-gallery gallery">
             <?php
-$query = mysqli_query($conn, "SELECT products.name,  products.price, products.count, products.image, cart.amount FROM cart, products, users WHERE users.id_u LIKE cart.id_u AND products.id_p LIKE cart.id_p;");
-if (mysqli_num_rows($query) > 0) {
-    while ($row = mysqli_fetch_array($query)) {
-        echo "<div class='product'><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><div class='amount-btns-container'><button>-</button><span>" . $row['amount'] . "</span><button>+</button></div></div></div>";
+if (isset($_SESSION['id_u'])) {
+    $query = mysqli_query($conn, "SELECT products.name,  products.price, products.count, products.image, cart.amount FROM cart, products WHERE $id_u LIKE cart.id_u AND products.id_p LIKE cart.id_p;");
+    if (mysqli_num_rows($query) > 0) {
+        while ($row = mysqli_fetch_array($query)) {
+            echo "<div class='product'><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><div class='amount-btns-container'><button>-</button><span>" . $row['amount'] . "</span><button>+</button></div></div></div>";
+        }
     }
+    $conn->close();
 }
 
-$conn->close();
 ?>
         </div>
     </section>
