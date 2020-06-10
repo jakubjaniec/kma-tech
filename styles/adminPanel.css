@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 *,
 *::before,
 *::after {
@@ -7,4 +9,283 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  background: #354149;
+  padding-top: 20%;
+}
+
+.back-btn {
+  position: absolute;
+  top: 3%;
+  right: 9%;
+  border: none;
+  background: transparent;
+  padding: 10px;
+}
+
+.back-btn div {
+  transform: translate(-50%, -50%);
+}
+
+.back-btn div:before,
+.back-btn div:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background: white;
+}
+
+.back-btn div:before {
+  transform: rotate(45deg)
+}
+
+.back-btn div:after {
+  transform: rotate(-45deg)
+}
+
+
+.products-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product {
+  display: flex;
+  position: relative;
+  width: 90%;
+  min-height: 100px;
+  background: #fff;
+  margin: 7px 0;
+}
+
+.product div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-basis: 100%;
+}
+
+.product img {
+  margin-left: 20px;
+  width: 30%;
+  height: 40%;
+  align-self: center;
+}
+
+.product p {
+  text-align: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.product span.price {
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.product button {
+  cursor: pointer;
+  background: rgb(145, 19, 19);
+  border: none;
+  color: white;
+  padding: 5px 20px;
+  font-family: inherit;
+  font-size: 13px;
+  margin: 15px 10px 10px 0;
+}
+
+
+.add-product-btn{
+  position: absolute;
+  top: 2%;
+  left: 5%;
+  color: #668ad8;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 30px;
+  border: double 4px #668ad8;
+  overflow: hidden;
+  transition: .4s;
+  z-index: 9999;
+  cursor: pointer;
+  /* outline: none; */
+}
+
+.btn--active {
+  position: fixed;
+  transform: rotate(45deg)
+}
+
+
+.add-product-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #2E3940;
+  z-index: 99;
+  transform: translateY(-100%);
+  color: white;
+  transition: .3s ease-in-out;
+}
+
+.form--active{
+  transform: translateY(0)
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  font-family: inherit;
+}
+
+label {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+input{
+  width: 100%;
+  max-width: 100%;
+  margin: 5px 0;
+  background: #333F47;
+  border: none;
+  padding: 5px;
+  color: white;
+  font-family: inherit;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+select {
+  margin-bottom: 30px;
+  background: #333F47;
+  color: white;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.add-product-form button {
+  min-width: 35%;
+  background: #FC5C7D;
+  border: none;
+  color: white;
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 14px;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+
+  .app {
+    padding-top: 20vh;
+  }
+
+  .back-btn {
+    right: 5%;
+  }
+
+  .products-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 50px;
+  }
+  .product {
+    min-height: 150px;
+    flex-basis: 40%;
+    margin: 10px;
+  }
+
+  .product img {
+    margin-left: 30px;
+  }
+
+  .product div {
+    justify-content: center;
+    padding-right: 20px;
+  }
+
+  .product button {
+    margin-top: 25px;
+  }
+
+  form {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .product {
+    flex-basis: 30%;
+  }
+
+  .product p {
+    font-size: 18px;
+  }
+
+  .product span.price {
+    margin-top: 5px;
+  }
+
+  .product button {
+    font-size: 15px;
+    margin-top: 30px;
+  }
+
+  input,select {
+    padding:8px 5px;
+  }
+
+  form {
+    width: 35%;
+  }
+
+  label{
+    font-size: 16px;
+  }
+
+  option, select, input {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1900px) {
+  .product {
+    flex-basis: 22%;
+  }
+
+  .product p {
+    font-size: 20px;
+  }
+
+  .product span.price {
+    margin-top: 7px;
+    font-size: 14px;
+  }
+
+  .product button {
+    font-size: 16px;
+    margin-top: 35px;
+  }
 }

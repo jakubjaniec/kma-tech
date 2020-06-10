@@ -69,6 +69,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  z-index: -1;
 }
 
 li {
@@ -102,6 +103,7 @@ li.logout a {
   justify-content: flex-end;
   margin-top: 15px;
   margin-right: 25px;
+  z-index: 99;
 }
 
 .navigation__user a {
