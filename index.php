@@ -106,7 +106,8 @@ $result = mysqli_query($conn, "SELECT * FROM products WHERE category = 'switch'"
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
-        echo "<div class='product'><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><button>dodaj do koszyka</button></div></div>";
+        echo "<div class='product'><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><button class='addButton' value=" . $row['id_p'] . ">dodaj do koszyka</button></div></div>";
+
     }
 }
 
@@ -146,7 +147,7 @@ $result = mysqli_query($conn, "SELECT * FROM products WHERE category = 'router'"
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
-        echo "<div class='product'><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><button>dodaj do koszyka</button></div></div>";
+        echo "<div class='product'><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><button class='addButton' value=" . $row['id_p'] . ">dodaj do koszyka</button></div></div>";
     }
 }
 
@@ -186,7 +187,7 @@ $result = mysqli_query($conn, "SELECT * FROM products WHERE category = 'other'")
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
-        echo "<div class='product'><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><button>dodaj do koszyka</button></div></div>";
+        echo "<div class='product'><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><button class='addButton' value=" . $row['id_p'] . ">dodaj do koszyka</button></div></div>";
     }
 }
 
@@ -201,7 +202,7 @@ $result = mysqli_query($conn, "SELECT * FROM products WHERE category = 'other'")
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
-        echo "<div class='product'><img src='" . $row['image'] . "'/><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " ZŁ</span><button>dodaj do koszyka</button></div>";
+        echo "<div class='product'><img src='" . $row['image'] . "'/><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " ZŁ</span><button class='addButton' value=" . $row['id_p'] . ">dodaj do koszyka</button></div>";
     }
 }
 
@@ -246,6 +247,21 @@ if (mysqli_num_rows($result) > 0) {
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.3/glider.min.js"></script>
     <script src="./js/index.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.addButton').click(function() {
+            var clickBtnValue = $(this).val();
+            var ajaxurl = 'ajax.php',
+                data = {
+                    'id': clickBtnValue
+                };
+            $.post(ajaxurl, data, function(response) {
+                alert("produkt dodano do koszyka");
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>
