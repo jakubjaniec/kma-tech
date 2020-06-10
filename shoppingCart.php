@@ -6,7 +6,7 @@ if (!session_id()) {
 
 if (isset($_GET['logout'])) {
     session_destroy();
-    header('location:shoppingCart.php');
+    header('location:index.php');
 }
 if (isset($_SESSION['id_u'])) {
     $id_u = $_SESSION['id_u'];
@@ -58,7 +58,7 @@ if (isset($_SESSION['id_u'])) {
 
     }
 }
-echo "<span>$total</span> PLN";
+echo "<span class='totalPrice'>$total</span> PLN";
 
 ?>
         </p>
@@ -66,10 +66,10 @@ echo "<span>$total</span> PLN";
         <div class="mobile-gallery gallery">
             <?php
 if (isset($_SESSION['id_u'])) {
-    $query = mysqli_query($conn, "SELECT products.name,  products.price, products.count, products.image, cart.amount FROM cart, products WHERE $id_u LIKE cart.id_u AND products.id_p LIKE cart.id_p;");
+    $query = mysqli_query($conn, "SELECT products.name,  products.price, products.count, products.image, cart.amount, cart.id_c FROM cart, products WHERE $id_u LIKE cart.id_u AND products.id_p LIKE cart.id_p;");
     if (mysqli_num_rows($query) > 0) {
         while ($row = mysqli_fetch_array($query)) {
-            echo "<div class='product'><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><div class='amount-btns-container'><button>-</button><span>" . $row['amount'] . "</span><button>+</button></div></div></div>";
+            echo "<div class='product'><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><div class='amount-btns-container'><input type='number' data-inputid='" . $row['id_c'] . "' value='" . $row['amount'] . "' min='1' max='999'/></div></div></div>";
         }
     }
     $conn->close();
@@ -84,6 +84,28 @@ if (isset($_SESSION['id_u'])) {
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
     }
+    </script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('input').change(function() {
+            var inputValue = $(this).val();
+            var inputId = $(this).attr('data-inputid');
+            var ajaxurl = 'ajax.php',
+                data = {
+                    'inputValue': inputValue,
+                    'inputId': inputId
+                };
+            $.post(ajaxurl, data)
+
+
+            // --------------------------------- updating price from database
+
+            $('.totalPrice').load("ajax.php", {
+                updatePrice: true
+            })
+        });
+    });
     </script>
 </body>
 

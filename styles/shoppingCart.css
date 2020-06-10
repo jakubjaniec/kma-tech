@@ -168,3 +168,7 @@ p.section-title {
     align-items: center;
 
 }
+
+input {
+    max-width: 50px;
+}
