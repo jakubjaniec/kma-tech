@@ -69,7 +69,7 @@ if (isset($_SESSION['id_u'])) {
     $query = mysqli_query($conn, "SELECT products.name,  products.price, products.count, products.image, cart.amount, cart.id_c FROM cart, products WHERE $id_u LIKE cart.id_u AND products.id_p LIKE cart.id_p;");
     if (mysqli_num_rows($query) > 0) {
         while ($row = mysqli_fetch_array($query)) {
-            echo "<div class='product'><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><div class='amount-btns-container'><input type='number' data-inputid='" . $row['id_c'] . "' value='" . $row['amount'] . "' min='1' max='999'/></div></div></div>";
+            echo "<div class='product'><button class='back-btn' data-btnId='" . $row['id_c'] . "'><div></div></button><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><div class='amount-container'><span>ilość:<input type='number' class='amountInput' data-inputid='" . $row['id_c'] . "' value='" . $row['amount'] . "' min='1' max='999'/></span></div></div></div>";
         }
     }
     $conn->close();
@@ -88,7 +88,10 @@ if (isset($_SESSION['id_u'])) {
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script>
     $(document).ready(function() {
-        $('input').change(function() {
+
+
+        //---------------------------------------- changing amount of product
+        $(document).on('change', '.amountInput', function() {
             var inputValue = $(this).val();
             var inputId = $(this).attr('data-inputid');
             var ajaxurl = 'ajax.php',
@@ -105,6 +108,26 @@ if (isset($_SESSION['id_u'])) {
                 updatePrice: true
             })
         });
+        // --------------------------------- removing product from cart
+        $(document).on('click', '.product .back-btn', function() {
+
+
+            let deleteId = $(this).attr('data-btnId');
+            let ajaxurl = 'ajax.php',
+                data = {
+                    'deleteId': deleteId
+                };
+            $.post(ajaxurl, data)
+
+            $('.gallery').load("ajax.php", {
+                updateProducts: true
+            })
+            $('.totalPrice').load("ajax.php", {
+                updatePrice: true
+            })
+        })
+        // $('.product .back-btn').click(function() {
+        // });
     });
     </script>
 </body>

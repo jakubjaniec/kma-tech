@@ -91,6 +91,7 @@ section {
     min-height: 100px;
     background: #fff;
     margin: 7px 0;
+    overflow: hidden;
 }
 
 .mobile-gallery .product {
@@ -102,9 +103,9 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     flex-basis: 100%;
-    padding-left: 20px;
+    padding: 0 30px 0 10px;
 }
 
 .product img {
@@ -161,14 +162,36 @@ p.section-title {
     margin: 0 20px 20px;
 }
 
-.product .amount-btns-container {
+.product .amount-container {
     flex-direction: row;
     width: 100%;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
+    padding: 0;
 
 }
 
-input {
+
+.product .back-btn {
+    z-index: 100;
+    right: -4%;
+    top: 14%;
+    background: transparent;
+    text-align: left;
+    padding: 0;
+}
+
+.product .back-btn div:before,
+.product .back-btn div:after {
+    background: black;
+}
+
+.amountInput {
+    border: none;
+    outline: none;
+    text-align: center;
     max-width: 50px;
+    border-bottom: 1px solid #333F47;
+    margin-left: 15px;
+
 }

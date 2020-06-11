@@ -254,7 +254,7 @@ if (mysqli_num_rows($result) > 0) {
             var clickBtnValue = $(this).val();
             var ajaxurl = 'ajax.php',
                 data = {
-                    'id': clickBtnValue
+                    'id_p': clickBtnValue
                 };
             $.post(ajaxurl, data, function(response) {
                 alert("produkt dodano do koszyka");
