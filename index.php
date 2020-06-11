@@ -165,7 +165,7 @@ if(isset($_GET['logout'])) {
         }
       }
       
-      ?>
+      ?> 
       </div>
       <button class="carousel-btn-right">
         <div></div>

@@ -49,9 +49,9 @@ if(!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['su
       </div>
 
       <form method="POST">
-        <input type="text" name="username" placeholder="login" autocomplete="off">
-        <input type="password" name="password" placeholder="hasło">
-        <input type="password" name="submit-password" placeholder="potwierdź hasło">
+        <input type="text" name="username" placeholder="login" autocomplete="off" required>
+        <input type=" password" name="password" placeholder="hasło" required>
+        <input type="password" name="submit-password" placeholder="potwierdź hasło" required>
         <button class="form-btn">dalej</button>
       </form>
 

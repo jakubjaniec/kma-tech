@@ -107,7 +107,7 @@ body {
 }
 
 
-.add-product-btn{
+.add-product-btn {
   position: absolute;
   top: 2%;
   left: 5%;
@@ -146,7 +146,7 @@ body {
   transition: .3s ease-in-out;
 }
 
-.form--active{
+.form--active {
   transform: translateY(0)
 }
 
@@ -162,7 +162,7 @@ label {
   font-size: 14px;
 }
 
-input{
+input {
   width: 100%;
   max-width: 100%;
   margin: 5px 0;
@@ -211,6 +211,7 @@ select {
     justify-content: center;
     padding-bottom: 50px;
   }
+
   .product {
     min-height: 150px;
     flex-basis: 40%;
@@ -253,19 +254,22 @@ select {
     margin-top: 30px;
   }
 
-  input,select {
-    padding:8px 5px;
+  input,
+  select {
+    padding: 8px 5px;
   }
 
   form {
     width: 35%;
   }
 
-  label{
+  label {
     font-size: 16px;
   }
 
-  option, select, input {
+  option,
+  select,
+  input {
     font-size: 16px;
   }
 }
@@ -273,6 +277,7 @@ select {
 @media (min-width: 1900px) {
   .product {
     flex-basis: 22%;
+    /* background: black; */
   }
 
   .product p {
@@ -287,5 +292,19 @@ select {
   .product button {
     font-size: 16px;
     margin-top: 35px;
+  }
+}
+
+@media (min-width: 2500px) {
+  .product p {
+    font-size: 24px;
+  }
+
+  .product span.price {
+    font-size: 17px;
+  }
+
+  .product button {
+    font-size: 19px
   }
 }

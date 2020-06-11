@@ -338,7 +338,9 @@ li.logout a {
   margin-bottom: 40px;
 }
 
-.glider1, .glider2, .glider3 {
+.glider1,
+.glider2,
+.glider3 {
   display: none;
 }
 
@@ -510,6 +512,7 @@ li.logout a {
     margin: 0;
     margin-left: 20px;
   }
+
   .navigation__username {
     margin-right: 0;
     margin-left: 10px;
@@ -578,7 +581,9 @@ li.logout a {
     font-size: 20px;
   }
 
-  .glider1, .glider2, .glider3 {
+  .glider1,
+  .glider2,
+  .glider3 {
     display: flex;
   }
 
@@ -603,7 +608,7 @@ li.logout a {
     font-size: 14px;
     margin: 0;
     position: relative;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
     text-align: center;
   }
 
@@ -645,7 +650,8 @@ li.logout a {
     margin-right: 20px;
   }
 
-  .carousel-btn-left, .carousel-btn-right {
+  .carousel-btn-left,
+  .carousel-btn-right {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -672,12 +678,12 @@ li.logout a {
     width: 40px;
   }
 
-   .carousel-btn-left div {
+  .carousel-btn-left div {
     transform: rotate(-45deg);
   }
 
 
-  .carousel-btn-right div{
+  .carousel-btn-right div {
     right: 20px;
     transform: rotate(135deg);
   }
@@ -763,6 +769,7 @@ li.logout a {
   .navigation__menu li {
     margin: 0 0 0 40px;
   }
+
   .navigation__menu li:last-child {
     margin-right: 40px;
   }
@@ -798,50 +805,50 @@ li.logout a {
 }
 
 @media (min-width: 1600px) {
-   .navigation li {
-     font-size: 15px;
-   }
+  .navigation li {
+    font-size: 15px;
+  }
 
-   /* .heading__title{color:black} */
+  /* .heading__title{color:black} */
 
-   .navigation__search {
-     font-size: 14px;
-   }
+  .navigation__search {
+    font-size: 14px;
+  }
 
-   .navigation__cart {
-     width: 27px;
-   }
+  .navigation__cart {
+    width: 27px;
+  }
 
-   .products p.section-title {
-     font-size: 24px;
-   }
+  .products p.section-title {
+    font-size: 24px;
+  }
 
-   .product {
-     min-height: 270px;
-   }
+  .product {
+    min-height: 270px;
+  }
 
-   .product p {
-     margin-top: 10px;
-     font-size: 17px;
-   }
+  .product p {
+    margin-top: 10px;
+    font-size: 17px;
+  }
 
-   .product span.price {
-     font-size: 15px;
-   }
+  .product span.price {
+    font-size: 15px;
+  }
 
-   .product img {
-     margin-top: 0;
-   }
+  .product img {
+    margin-top: 0;
+  }
 
-   .product button {
-     font-size: 15px;
-     margin-top: 15px;
-     margin-bottom: 0;
-   }
+  .product button {
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
 
-   .footer__contact textarea {
-     min-height: 140px;
-   }
+  .footer__contact textarea {
+    min-height: 140px;
+  }
 }
 
 @media (min-width: 1800px) {
@@ -849,11 +856,11 @@ li.logout a {
     margin-top: 25vh;
   }
 
- /* .heading__title{color:black} */
+  /* .heading__title{color:black} */
 
- .heading__title {
-   font-size: 36px;
- }
+  .heading__title {
+    font-size: 36px;
+  }
 
   .heading a {
     padding: 8px 24px;
@@ -891,24 +898,25 @@ li.logout a {
 }
 
 @media (min-width: 2000px) {
-   .heading__title{
-     font-size: 42px;
-     /* color: black; */
-    }
-   
-   .heading__logo {
-     width: 23%;
-   }
+  .heading__title {
+    font-size: 42px;
+    /* color: black; */
+  }
 
-   .navigation li {
-     font-size: 20px;
-   }
-   .navigation {
-     padding-left: 25px;
-     padding-right: 25px;
-   }
+  .heading__logo {
+    width: 23%;
+  }
 
-   .navigation__user img {
+  .navigation li {
+    font-size: 20px;
+  }
+
+  .navigation {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .navigation__user img {
     width: 50px;
   }
 
@@ -917,16 +925,16 @@ li.logout a {
     margin-left: 15px;
   }
 
-   .navigation__cart {
-     width: 35px
-   }
+  .navigation__cart {
+    width: 35px
+  }
 
-   .navigation__search {
-     font-size: 18px;
-     width: 210px;
-   }
+  .navigation__search {
+    font-size: 18px;
+    width: 210px;
+  }
 
-   .navigation__searchbox {
+  .navigation__searchbox {
     margin-right: 40px;
   }
 
@@ -953,7 +961,7 @@ li.logout a {
 
   .product span.price {
     font-size: 18px;
-    margin: 15px 0 ;
+    margin: 15px 0;
   }
 
   .products p.section-title {
@@ -968,7 +976,8 @@ li.logout a {
     font-size: 32px;
   }
 
-  .footer p, .footer label {
+  .footer p,
+  .footer label {
     font-size: 20px;
   }
 

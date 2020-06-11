@@ -13,7 +13,7 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
 
   $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
 
-  if(mysqli_num_rows($result) > 0){
+  if(mysqli_num_rows($result) > 0){ 
 
   while($row = mysqli_fetch_array($result)){
 
@@ -50,8 +50,8 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
       </div>
 
       <form method="POST">
-        <input type="text" name="username" id="login" placeholder="login" autocomplete="off">
-        <input type="password" name="password" id="password" placeholder="hasło">
+        <input type="text" name="username" id="login" placeholder="login" autocomplete="off" required>
+        <input type="password" name="password" id="password" placeholder="hasło" required>
         <button>zaloguj</button>
       </form>
 
