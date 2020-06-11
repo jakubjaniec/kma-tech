@@ -126,8 +126,6 @@ if (isset($_SESSION['id_u'])) {
                 updatePrice: true
             })
         })
-        // $('.product .back-btn').click(function() {
-        // });
     });
     </script>
 </body>

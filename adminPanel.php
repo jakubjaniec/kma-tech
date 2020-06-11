@@ -2,47 +2,47 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ADMIN PANEL</title>
-  <link rel="stylesheet" href="./styles/adminPanel.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN PANEL</title>
+    <link rel="stylesheet" href="./styles/adminPanel.css">
 </head>
 
 <body>
-  <div class="app">
-    <a href="index.php" class="back-btn">
-      <div></div>
-    </a>
-    <button class="add-product-btn">
-      +
-    </button>
+    <div class="app">
+        <a href="index.php" class="back-btn">
+            <div></div>
+        </a>
+        <button class="add-product-btn">
+            +
+        </button>
 
-    <div class="add-product-form">
-      <form method="POST" reuire>
-        <label for="name">Nazwa produktu</label>
-        <input type="text" id="name" name="name" required>
-        <label for="category">Kategoria</label>
-        <select id="category" name="category">
-          <option value="switch">switch</option>
-          <option value="router">router</option>
-          <option value="other">inne</option>
-        </select>
-        <label for="price">Cena</label>
-        <input type="number" id="price" name="price" required>
-        <label for="count">Ilość</label>
-        <input type="number" id="count" name="count" required>
-        <label for="image">Link do obrazka</label>
-        <input type="text" id="image" name="image" required>
-        <button>dodaj produkt</button>
-      </form>
-    </div>
+        <div class="add-product-form">
+            <form method="POST" reuire>
+                <label for="name">Nazwa produktu</label>
+                <input type="text" id="name" name="name" required>
+                <label for="category">Kategoria</label>
+                <select id="category" name="category">
+                    <option value="switch">switch</option>
+                    <option value="router">router</option>
+                    <option value="other">inne</option>
+                </select>
+                <label for="price">Cena</label>
+                <input type="number" id="price" name="price" required>
+                <label for="count">Ilość</label>
+                <input type="number" id="count" name="count" required>
+                <label for="image">Link do obrazka</label>
+                <input type="text" id="image" name="image" required>
+                <button>dodaj produkt</button>
+            </form>
+        </div>
 
-    <?php  
-  
-  $conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
+        <?php
 
-  if(!empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['count'])) {
-    
+$conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
+
+if (!empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['count'])) {
+
     $name = $_POST['name'];
     $category = $_POST['category'];
     $price = $_POST['price'];
@@ -51,47 +51,67 @@
 
     $query = "INSERT INTO products VALUES('0', '$name', '$category', '$price', '$count', '$image')";
 
-    if(mysqli_query($conn, $query));
+    if (mysqli_query($conn, $query));
     echo "<script>alert('Produkt pomyślnie dodany do bazy!')</script>";
-  }
-  
-  ?>
+}
+
+?>
 
 
-    <div class="products-list">
-      <?php 
-    
-    $conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
+        <div class="products-list">
+            <?php
 
-    $result = mysqli_query($conn, "SELECT * FROM products");
+$conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
 
-    if(mysqli_num_rows($result) > 0) {
-      while($row = mysqli_fetch_array($result)) {
-        echo "<div class='product'><img src='". $row['image'] ."'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><button name='delete-btn'>usuń produkt</button></div></div>";
-      }
+$result = mysqli_query($conn, "SELECT * FROM products");
+
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_array($result)) {
+        echo "<div class='product'><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><button name='delete-btn' class='delete-btn' data-btnId='" . $row['id_p'] . "'>usuń produkt</button></div></div>";
     }
+}
 
-    ?>
+?>
+        </div>
+
     </div>
-
-  </div>
-
-  <script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
     const addProductBtn = document.querySelector('.add-product-btn')
     const addProductForm = document.querySelector('.add-product-form')
 
     const toggleAddProductForm = () => {
-      addProductForm.classList.toggle('form--active')
-      addProductBtn.classList.toggle('btn--active')
+        addProductForm.classList.toggle('form--active')
+        addProductBtn.classList.toggle('btn--active')
     }
 
 
     addProductBtn.addEventListener('click', toggleAddProductForm)
 
     if (window.history.replaceState) {
-      window.history.replaceState(null, null, window.location.href);
+        window.history.replaceState(null, null, window.location.href);
     }
-  </script>
+    </script>
+    <script>
+    $(document).ready(function() {
+
+        // --------------------------------- permanent product removing
+        $(document).on('click', '.delete-btn', function() {
+
+
+            let removeId = $(this).attr('data-btnId');
+            let ajaxurl = 'ajax.php',
+                data = {
+                    'removeId': removeId
+                };
+            $.post(ajaxurl, data)
+
+            $('.products-list').load("ajax.php", {
+                updatePanel: true
+            })
+        })
+    });
+    </script>
 </body>
 
 </html>

@@ -23,9 +23,16 @@ if (isset($_POST['deleteId'])) {
     $deleteId = $_POST['deleteId'];
     deleteFromCart($deleteId);
 }
-
+if (isset($_POST['removeId'])) {
+    $removeId = $_POST['removeId'];
+    deleteFromAdminPanel($removeId);
+}
 if (isset($_POST['updatePrice'])) {
     updatePrice();
+    exit;
+}
+if (isset($_POST['updatePanel'])) {
+    updatePanel();
     exit;
 }
 if (isset($_POST['updateProducts'])) {
@@ -85,4 +92,23 @@ function updateProducts()
         }
     }
     exit;
+}
+
+function deleteFromAdminPanel($removeId)
+{
+    $conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
+    mysqli_query($conn, "DELETE FROM products WHERE id_p = $removeId;");
+    exit;
+}
+function updatePanel()
+{
+    $conn = mysqli_connect('remotemysql.com', '3Atj7OvE8S', 'D0TFKvjonl', '3Atj7OvE8S');
+
+    $result = mysqli_query($conn, "SELECT * FROM products");
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            echo "<div class='product'><img src='" . $row['image'] . "'/><div><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " PLN</span><button name='delete-btn' class='delete-btn' data-btnId='" . $row['id_p'] . "'>usuń produkt</button></div></div>";
+        }
+    }
 }
