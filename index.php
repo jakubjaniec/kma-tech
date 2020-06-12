@@ -122,7 +122,7 @@ $result = mysqli_query($conn, "SELECT * FROM products WHERE category = 'switch'"
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
-        echo "<div class='product'><img src='" . $row['image'] . "'/><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " ZŁ</span><button>dodaj do koszyka</button></div>";
+        echo "<div class='product'><img src='" . $row['image'] . "'/><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " ZŁ</span><button class='addButton' value=" . $row['id_p'] . ">dodaj do koszyka</button></div>";
     }
 }
 
@@ -162,7 +162,7 @@ $result = mysqli_query($conn, "SELECT * FROM products WHERE category = 'router'"
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_array($result)) {
-        echo "<div class='product'><img src='" . $row['image'] . "'/><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " ZŁ</span><button>dodaj do koszyka</button></div>";
+        echo "<div class='product'><img src='" . $row['image'] . "'/><p>" . $row['name'] . "</p><span class='price'>Cena: " . $row['price'] . " ZŁ</span><button class='addButton' value=" . $row['id_p'] . ">dodaj do koszyka</button></div>";
     }
 }
 
