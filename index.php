@@ -249,18 +249,18 @@ if (mysqli_num_rows($result) > 0) {
     <script src="./js/index.js"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script>
-    $(document).ready(function() {
-        $('.addButton').click(function() {
-            var clickBtnValue = $(this).val();
-            var ajaxurl = 'ajax.php',
-                data = {
-                    'id_p': clickBtnValue
-                };
-            $.post(ajaxurl, data, function(response) {
-                alert("produkt dodano do koszyka");
+        $(document).ready(function () {
+            $('.addButton').click(function () {
+                var clickBtnValue = $(this).val();
+                var ajaxurl = 'ajax.php',
+                    data = {
+                        'id_p': clickBtnValue
+                    };
+                $.post(ajaxurl, data, function (response) {
+                    alert("produkt dodano do koszyka");
+                });
             });
         });
-    });
     </script>
 </body>
 
